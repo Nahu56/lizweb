@@ -20,4 +20,32 @@ class Controller extends BaseController
     {
         return view('connexion');
     }
+
+    public function auth()
+    {
+        session_start();
+        $_SESSION["pswd"] = $_POST["pswd"];
+
+        $message = "Mot de passe incorrect";
+
+
+        //$correctpswd = REQUETE BDD
+
+        if($_SESSION["pswd"] == 'ok')
+        {
+            return view('admin');
+        }else{
+            return view('connexion', ['message' => $message]); 
+        }
+    }
+
+    public function admin()
+    {
+        session_start();
+
+        $_SESSION["user"] = $_POST["user"];
+        $_SESSION["password"] = $_POST["password"];
+
+        dd($_SESSION["user"]);
+    }
 }

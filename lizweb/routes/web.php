@@ -17,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('', ['uses' => 'App\Http\Controllers\controller@index'])->name("index");
 
 /* ----------------------------- PAGE CONNEXION ----------------------------- */
-Route::get('admin', ['uses' => 'App\Http\Controllers\controller@connexion'])->name("connexion");
+Route::get('connexion', ['uses' => 'App\Http\Controllers\controller@connexion'])->name("connexion");
+
+/* --------------------------------- AUTH -------------------------------- */
+Route::post('auth', ['uses' => 'App\Http\Controllers\Controller@auth'])->name("auth");
+
+/* ------------------------------ PAGE ADMIN -------------------------------- */
+Route::get('admin', function(){return view('admin');});
