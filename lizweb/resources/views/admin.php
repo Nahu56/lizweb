@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 
-    <?php include('master.php'); ?>
+    <?php include('layout/master.php'); ?>
 
     <title>Administration</title>
 
 </head>
 <body>
-    <h1>salut a tous</h1>
+    <h1>On est dans l'admin !</h1>
 </body>
 </html>

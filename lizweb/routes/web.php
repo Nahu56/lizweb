@@ -14,13 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 /* --------------------------------- INDEX --------------------------------- */
-Route::get('', ['uses' => 'App\Http\Controllers\controller@index'])->name("index");
+Route::get('', ['uses' => 'App\Http\Controllers\controller@index']);
+
+/* --------------------------------- TABLEAUX --------------------------------- */
+Route::get('tableaux', ['uses' => 'App\Http\Controllers\controller@tableaux']);
 
 /* ----------------------------- PAGE CONNEXION ----------------------------- */
-Route::get('connexion', ['uses' => 'App\Http\Controllers\controller@connexion'])->name("connexion");
+Route::get('connexion', ['uses' => 'App\Http\Controllers\controller@connexion']);
 
 /* --------------------------------- AUTH -------------------------------- */
-Route::post('auth', ['uses' => 'App\Http\Controllers\Controller@auth'])->name("auth");
+Route::post('auth', ['uses' => 'App\Http\Controllers\controller@auth']);
 
 /* ------------------------------ PAGE ADMIN -------------------------------- */
 Route::get('admin', function(){return view('admin');});

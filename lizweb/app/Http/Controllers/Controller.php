@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -11,9 +12,18 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    /* ---------------------------- ALLER A L'ACCUEIL --------------------------- */
     public function index()
     {
         return view('accueil');
+    }
+
+    /* -------------------------- AFFICHER LES TABLEAUX ------------------------- */
+    public function tableaux()
+    {
+        $tableaux = DB::table('Tableaux')->get();
+
+        return view('tableaux', ['tabx' => $tableaux]);
     }
 
     public function connexion()
@@ -29,13 +39,14 @@ class Controller extends BaseController
         $message = "Mot de passe incorrect";
 
 
-        //$correctpswd = REQUETE BDD
-
+        //vérifier si le mot de passe entré égal à
         if($_SESSION["pswd"] == 'ok')
         {
             return view('admin');
         }else{
-            return view('connexion', ['message' => $message]); 
+
+            dd('nope, mdp incorrect');
+            //return view('connexion', ['message' => $message]); 
         }
     }
 
