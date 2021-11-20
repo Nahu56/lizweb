@@ -14,69 +14,61 @@
 
     <?php
         $nbTabx = count($tabx);
-        //echo $nbTabx;
+        //var_dump($tabx);
     ?>
-
-
-    <table class="large">
-        <?php
-        for($i = 1; $i <= $nbTabx; $i += 3){
-            ?>
-
-                <tr>
-                    <td style="background-image: url('img/<?php echo $i ?>.jpg')"></td>
-                    <td style="background-image: url('img/<?php echo $i+1 ?>.jpg')"></td>
-                    <td style="background-image: url('img/<?php echo $i+2 ?>.jpg')"></td>
-                </tr>
-
-            <?php
-        };?>
-    </table>
-
-    <hr>
 
     
     <table class="large">
         <?php
-        for($i = 1; $i <= $nbTabx; $i += 3){
+        $loop = 0;
+
+        foreach($tabx as $tableau){
+            
+            if($loop == 0){
+                echo "<tr>";
+            }
             ?>
-                <tr>
-                    <td>
-                        <div style="background-image: url('img/<?php echo $i ?>.jpg')">zz</div>
-                    </td>
-                    <td>
-                        <div style="background-image: url('img/<?php echo $i+1 ?>.jpg')">zz</div>
-                    </td>
-                    <td>
-                        <div style="background-image: url('img/<?php echo $i+2 ?>.jpg')">zz</div>
-                    </td>
-                </tr>
-
+                <td>
+                    <div style="background-image: url('img/<?php echo $tableau->id ?>.jpg')"></div>
+                    <div class="titre"><strong><?php echo $tableau->nom ?></strong></br><?php echo $tableau->commentaire ?></div>
+                </td>
             <?php
-        };?>
+
+            $loop += 1;
+
+            if($loop == 3){
+                echo "</tr>";
+                $loop = 0;
+            }
+        }
+        ?>
     </table>
-
-
-
-    <hr>
-
 
 
     <table class="etroit">
 
         <?php
-            for($i = 1; $i <= $nbTabx; $i += 2){
+            $loop = 0;
 
-                //echo $i;
+            foreach($tabx as $tableau){
+                
+                if($loop == 0){
+                    echo "<tr>";
+                }
                 ?>
-
-                    <tr>
-                        <td style="background-image: url('img/<?php echo $i ?>.jpg')"></td>
-                        <td style="background-image: url('img/<?php echo $i+1 ?>.jpg')"></td>
-                    </tr>
-
+                    <td>
+                        <div style="background-image: url('img/<?php echo $tableau->id ?>.jpg')"></div>
+                        <div class="titre"><strong>Titre de mon oeuvre</strong></br>Mon commentaire</div>
+                    </td>
                 <?php
-            };
+
+                $loop += 1;
+
+                if($loop == 2){
+                    echo "</tr>";
+                    $loop = 0;
+                }
+            }
         ?>
 
     </table>
