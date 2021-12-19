@@ -25,5 +25,20 @@ Route::get('connexion', ['uses' => 'App\Http\Controllers\controller@connexion'])
 /* --------------------------------- AUTH -------------------------------- */
 Route::post('auth', ['uses' => 'App\Http\Controllers\controller@auth']);
 
+
 /* ------------------------------ PAGE ADMIN -------------------------------- */
-Route::get('admin', function(){return view('admin');});
+Route::get('admin', ['uses' => 'App\Http\Controllers\controller@admin'])->name("admin");
+
+
+ /* -------------------------------------------------------------------------- */
+ /*                                EDIT TABLEAUX                               */
+ /* -------------------------------------------------------------------------- */
+
+/* ------------------------------- Page ajout ------------------------------- */
+Route::get('create', function(){return view("create");});
+Route::post('store', ['uses' => 'App\Http\Controllers\Controller@store']);
+
+/* ---------------------------- Supprimer tableau --------------------------- */
+Route::delete('accueil/{tableau}', ['uses' => 'App\Http\Controllers\controller@delete'])->name("tableau.delete");
+
+

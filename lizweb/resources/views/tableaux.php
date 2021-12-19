@@ -30,7 +30,10 @@
             ?>
                 <td>
                     <div style="background-image: url('img/<?php echo $tableau->id ?>.jpg')"></div>
-                    <div class="titre"><strong><?php echo $tableau->nom ?></strong></br><?php echo $tableau->commentaire ?></div>
+                    <div class="titre">
+                        <strong><?php echo $tableau->nom ?></strong>
+                        </br><?php echo $tableau->infos ?>
+                    </div>
                 </td>
             <?php
 
@@ -58,7 +61,10 @@
                 ?>
                     <td>
                         <div style="background-image: url('img/<?php echo $tableau->id ?>.jpg')"></div>
-                        <div class="titre"><strong>Titre de mon oeuvre</strong></br>Mon commentaire</div>
+                        <div class="titre">
+                            <strong><?php echo $tableau->nom ?></strong>
+                            </br><?php echo $tableau->infos ?>
+                        </div>
                     </td>
                 <?php
 
@@ -72,6 +78,9 @@
         ?>
 
     </table>
+
+
+
 
 </body>
 </html>
